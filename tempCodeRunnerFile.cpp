@@ -2,10 +2,10 @@
 #include <vector>
 using namespace std;
 
-int main () {
-vector<int> numbers;
-numbers.push_back(10);
-cout << numbers[0];
+int g = 0
+int local = 2;
 
-    return 0;
+int main () {
+cout << local << endl;
+cout << g;
 }
