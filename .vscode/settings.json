@@ -11,7 +11,6 @@
     "editor.wordBasedSuggestions": "off",
     "code-runner.showExecutionMessage": false,
     "code-runner.runInTerminal": true,
-    "code-runner.executorMap": {
-        "cpp": "g++ \"$fileName\" -o \"$fileNameWithoutExt\" && \"$dir\\$fileNameWithoutExt\""
-    }
+    "code-runner.saveFileBeforeRun": true,
+    "code-runner.ignoreSelection": true
 }
