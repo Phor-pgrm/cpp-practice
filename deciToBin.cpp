@@ -87,39 +87,56 @@ std::cout << "Decimal to Hexadecimal!" << std::endl;
 
 int main () {
 int x, choice;
-std::cout << "What would you like to convert from decimal values?\n1. Binary\n2. Octal\n3. Hexadecimal\n4. All\n";
+std::cout << "What would you like to convert from decimal values?\n1. Binary\n2. Octal\n3. Hexadecimal\n4. All\n5. Exit\n";
 std::cout << "Choice: ";
 std::cin >> choice;
-std::cout << "What value would you like to use to convert? ";
-std::cin >> x;
-do {
+while (choice != false) {
 switch (choice) {
     case 1:
+    std::cout << "What value would you like to use to convert? ";
+    std::cin >> x;
     decToBin(x);
+    std::cout << "Choice: ";
+    std::cin >> choice;
     break;
 
     case 2:
+    std::cout << "What value would you like to use to convert? ";
+    std::cin >> x;
     decToOctal(x);
+    std::cout << "Choice: ";
+    std::cin >> choice;
     break;
     
     case 3:
+    std::cout << "What value would you like to use to convert? ";
+    std::cin >> x;
     decToHex(x);
+    std::cout << "Choice: ";
+    std::cin >> choice;
     break;
 
     case 4:
+    std::cout << "What value would you like to use to convert? ";
+    std::cin >> x;
     decToBin(x);
     decToOctal(x);
     decToHex(x);
+    std::cout << "Choice: ";
+    std::cin >> choice;
     break;
 
     case 5:
+    std::cout << "Program Terminated!";
     return 0;
     break;
 
     default:
-    std::cout << "Invalid Choice. Try again";
+    std::cout << "Invalid Choice. Try again\n";
+    std::cout << "Choice: ";
+    std::cin >> choice;
     }
-} while (choice == true);
+}
 
     return 0;
 }
