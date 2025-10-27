@@ -1,6 +1,66 @@
 #include <iostream>
 #include <vector>
 
+void decToBin(int x);
+void decToOctal(int x);
+void decToHex(int x);
+
+int main () {
+int x, choice;
+std::cout << "What would you like to convert from decimal values?\n1. Binary\n2. Octal\n3. Hexadecimal\n4. All\n5. Exit\n";
+std::cout << "Choice: ";
+std::cin >> choice;
+while (choice != false) {
+switch (choice) {
+    case 1:
+    std::cout << "What value would you like to use to convert? ";
+    std::cin >> x;
+    decToBin(x);
+    std::cout << "Choice: ";
+    std::cin >> choice;
+    break;
+
+    case 2:
+    std::cout << "What value would you like to use to convert? ";
+    std::cin >> x;
+    decToOctal(x);
+    std::cout << "Choice: ";
+    std::cin >> choice;
+    break;
+    
+    case 3:
+    std::cout << "What value would you like to use to convert? ";
+    std::cin >> x;
+    decToHex(x);
+    std::cout << "Choice: ";
+    std::cin >> choice;
+    break;
+
+    case 4:
+    std::cout << "What value would you like to use to convert? ";
+    std::cin >> x;
+    decToBin(x);
+    decToOctal(x);
+    decToHex(x);
+    std::cout << "Choice: ";
+    std::cin >> choice;
+    break;
+
+    case 5:
+    std::cout << "Program Terminated!";
+    return 0;
+    break;
+
+    default:
+    std::cout << "Invalid Choice. Try again\n";
+    std::cout << "Choice: ";
+    std::cin >> choice;
+    }
+}
+
+    return 0;
+}
+
 void decToBin(int x) {
 std::vector<int> conv;
 std::vector<int> rem;
@@ -83,60 +143,4 @@ std::cout << "Decimal to Hexadecimal!" << std::endl;
     std::cout << conv[i] << " ";
 
     std::cout << std::endl;
-}
-
-int main () {
-int x, choice;
-std::cout << "What would you like to convert from decimal values?\n1. Binary\n2. Octal\n3. Hexadecimal\n4. All\n5. Exit\n";
-std::cout << "Choice: ";
-std::cin >> choice;
-while (choice != false) {
-switch (choice) {
-    case 1:
-    std::cout << "What value would you like to use to convert? ";
-    std::cin >> x;
-    decToBin(x);
-    std::cout << "Choice: ";
-    std::cin >> choice;
-    break;
-
-    case 2:
-    std::cout << "What value would you like to use to convert? ";
-    std::cin >> x;
-    decToOctal(x);
-    std::cout << "Choice: ";
-    std::cin >> choice;
-    break;
-    
-    case 3:
-    std::cout << "What value would you like to use to convert? ";
-    std::cin >> x;
-    decToHex(x);
-    std::cout << "Choice: ";
-    std::cin >> choice;
-    break;
-
-    case 4:
-    std::cout << "What value would you like to use to convert? ";
-    std::cin >> x;
-    decToBin(x);
-    decToOctal(x);
-    decToHex(x);
-    std::cout << "Choice: ";
-    std::cin >> choice;
-    break;
-
-    case 5:
-    std::cout << "Program Terminated!";
-    return 0;
-    break;
-
-    default:
-    std::cout << "Invalid Choice. Try again\n";
-    std::cout << "Choice: ";
-    std::cin >> choice;
-    }
-}
-
-    return 0;
 }
