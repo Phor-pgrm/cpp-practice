@@ -14,6 +14,7 @@ int vowels = 0;
         rev += word[i];
     }
 
+    //std::string::npos means "not found"; != npos means not "not found" or found
     std::string vowelsList = "aeiouAEIOU";
     for (int i = 0; i < word.length(); i++) {
         if (vowelsList.find(word[i]) != std::string::npos){
@@ -24,7 +25,7 @@ int vowels = 0;
 
     std::cout << "\nPalindrome: ";
     if (word == rev) {
-        std::cout << "Yes";
+        std::cout << "Yes"; 
     } else {
         std::cout << "No";
     }

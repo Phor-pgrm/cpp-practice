@@ -38,11 +38,12 @@ int allowance;
         for (int j = 0; j <= expenses.size() - 1; j++) {
             dailySpent += expenses[j];
         }
+        totalSpent += dailySpent;
 
 
-        if (dailySpent < allowance / 2) {
+        if (totalSpent < allowance / 2) {
             std::cout << "You saved well! You spent less than half of your allowance!\n";
-        } else if (dailySpent <= allowance) {
+        } else if (totalSpent <= allowance) {
             std::cout << "You're on budget. Keep it up!\n";
         } else {
             std::cout << "You overspent!\n";
@@ -51,7 +52,7 @@ int allowance;
         expenses.clear();
 
         std::cout << "You spent a total of " << dailySpent << " within this day.\n";
-        totalSpent += dailySpent;
+        
         totalAllowance -= dailySpent;
 
         std::cout << "SUMMARY:\n";

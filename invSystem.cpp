@@ -25,6 +25,7 @@ std::string name, search, lowerCase, combine = "";
     for (int i = 1; i <= items; i++) {
         std::cout << "Item name: ";
         std::getline(std::cin >> std::ws, name);
+        //bug
             for (int j = 0; j < name.size(); j++) {
                 lowerCase = std::tolower(name[j]);
                 combine += lowerCase;
@@ -69,7 +70,7 @@ char back;
 
         case 4:
             std::cout << "Program Terminated.";
-            break;
+            return;
 
         default:
             std::cout << "Invalid choice. Try again.\n";
@@ -82,26 +83,31 @@ char back;
 
 void shop() {
 std::cout << "---------------------SHOP----------------------\n";
-            for (int i = 0; i <= stockCount.size() - 1; i++) {
+            for (int i = 0; i < stockCount.size(); i++) {
             std::cout << itemList[i] << ": " << stockCount[i] << '\n';
             }
 }
 
 void search() {
 std::string search;
+std::string lowerSearch = "";
+bool found = false;
 
 
     std::cout << "Search: ";
     std::getline(std::cin >> std::ws, search);
-    for (int i = 0; i < itemList.size(); i++) {
-        if (search.find(itemName[i]) != std::string::npos || search.find(itemList[i]) != std::string::npos) {
-            std::cout << itemList[i] << ": " << stockCount[i] << '\n'; //Detects words with similar format (Pen, Pencil) if user searched Pencil, it will detect Pen.
-            break;
-        } else {
-            std::cout << "ERROR 404/Item not found" << '\n'; //Will not detect newly added items.
-            break;
+    for (char ch : search) {
+        lowerSearch += std::tolower(ch);
+    }
+    for (int i = 0; i < itemList.size(); i++){
+        if (itemName[i].find(lowerSearch) != std::string::npos || itemList[i].find(search) != std::string::npos) {
+            std::cout << itemList[i] << ": " << stockCount[i] << '\n';
+            found = true;
         }
     }
+    if (!found) {
+            std::cout << "ERROR 404/Item not found" << '\n';
+        }
 }
 
 void edit(int update) {
@@ -125,16 +131,15 @@ int updateChoice;
 }
 
 void editItem() {
-int stock;
+int stock;  
 std::string name, lowerCase, combine = "";
 
 
     std::cout << "Item name: ";
         std::getline(std::cin >> std::ws, name);
-            for (int i = 0; i < name.size(); i++){
-                lowerCase = std::tolower(name[i]);
-                combine += lowerCase;
-            }   itemName.push_back(combine);
+            for (char ch : name){
+                lowerCase += std::tolower(ch);
+            }   itemName.push_back(lowerCase);
         itemList.push_back(name);
         std::cout << "Stock count: ";
         std::cin >> stock;
@@ -144,21 +149,29 @@ std::string name, lowerCase, combine = "";
 void editStock() {
 int stock;
 std::string search;
+std::string lowerSearch = "";
+bool found = false;
 
+            std::cout << "Search: ";
+            std::getline(std::cin >> std::ws, search);
+            for (char ch : search) {
+                lowerSearch += std::tolower(ch);
+            }
 
-    std::cout << "Search: ";
-        std::getline(std::cin >> std::ws, search);
-            for (int i = 0; i <= itemList.size(); i++){
-                if (search.find(itemList[i]) != std::string::npos || search.find(itemName[i]) != std::string::npos) {
+            for (int i = 0; i < itemList.size(); i++){
+                if (lowerSearch == itemName[i] || search == itemList[i]) {
                 stockCount.erase(stockCount.begin() + i);
                 std::cout << "Stock count: ";
                 std::cin >> stock;
-                stockCount.insert(stockCount.begin() + i, stock);
-                } else {
-                    std::cout << "ERROR 404/Item not found" << '\n';
-                    break;
+                stockCount[i] = stock;
+                found = true;
+                }
             }
-        }
+
+            if (!found) {
+                std::cout << "ERROR 404/Item not found" << '\n';
+            }
+
         for (int i = 0; i < itemList.size(); i++) {
             if (stockCount[i] == 0) {
                 stockCount.erase(stockCount.begin() + i);
