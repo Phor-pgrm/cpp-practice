@@ -1,12 +1,5 @@
 #include <iostream>
 #include <string>
-/*
-Use a menu() function with choices:
-1. Check balance
-2. Deposit
-3. Withdraw
-4. Exit
-*/
 
 double balance = 10000.0;
 
