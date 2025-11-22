@@ -9,7 +9,7 @@ void actionMove(int player, int *turn, int a, int rows, int cols, std::string le
 bool winCheck(int player, int turn, int rows, int cols, std::vector<std::vector<std::string>> gameGrid);
 
 int main() {
-int rows = 3, cols = 3;
+int rows = 3, cols = 3; //custom grid sizes
 std::vector<std::vector<std::string>> gameGrid(rows, std::vector<std::string>(cols));
 std::vector<std::vector<std::string>> gameMove(rows, std::vector<std::string>(cols));
 std::vector<std::string> gameCoords(rows * cols);
