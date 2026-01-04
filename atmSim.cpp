@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-double balance = 10000.0;
+long double balance = 10000.0;
 
 void menu(int);
 void checkBalance();
@@ -52,7 +52,7 @@ switch (x) {
 void checkBalance() {
 int choice;
 char cont;
-double* bal = &balance;
+long double* bal = &balance;
 
     std::cout << "Current balance: " << *bal;
     
@@ -68,7 +68,7 @@ double* bal = &balance;
 
 void deposit() {
 double depos;
-double* bal = &balance;
+long double* bal = &balance;
 int choice;
 char cont;
 
@@ -89,7 +89,7 @@ char cont;
 
 void withdraw() {
 double with;
-double* bal = &balance;
+long double* bal = &balance;
 int choice;
 char cont;
 
